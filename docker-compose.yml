@@ -1,0 +1,12 @@
+version: '3.9'
+services:
+  dbpost:
+    image: postgres:latest
+    environment:
+      POSTGRES_PASSWORD: passcompose
+      POSTGRES_USER: usercompose
+      POSTGRES_DB: dbcompose
+    volumes:
+      - ./init_scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - 5447:5432
